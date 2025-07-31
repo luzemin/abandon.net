@@ -4,7 +4,7 @@ using SLN.LogHelper;
 
 namespace SLN;
 
-public class ServiceInjection : Module
+public class AutofacServiceInjection : Module
 {
     protected override void Load(ContainerBuilder builder)
     {

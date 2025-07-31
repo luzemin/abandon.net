@@ -11,10 +11,12 @@ namespace SLN.Services;
 public class OrderService : IDynamicWebApi
 {
     private IRepository<Order> _orderRepository;
+    private ISqlSugarFactory _sqlSugarFactory;
 
-    public OrderService(IRepository<Order> orderRepository)
+    public OrderService(IRepository<Order> orderRepository, ISqlSugarFactory sqlSugarFactory)
     {
         _orderRepository = orderRepository;
+        _sqlSugarFactory = sqlSugarFactory;
     }
 
     [HttpGet]
@@ -28,6 +30,10 @@ public class OrderService : IDynamicWebApi
     [AllowAnonymous]
     public async Task<Order> GetAllAsync()
     {
+        //通用client 示例
+        await _sqlSugarFactory.GetClient().Ado.ExecuteCommandAsync("select 1");
+
+        //单表client 示例
         var result = await _orderRepository.ReadClient.GetListAsync();
         return result.FirstOrDefault();
     }

@@ -9,6 +9,7 @@ using CorrelationId.DependencyInjection;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Panda.DynamicWebApi;
+using SLN;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -16,8 +17,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 /******************************************Add XXX***************************************************/
 //Autofac
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-builder.Host.ConfigureContainer<ContainerBuilder>(container => { container.RegisterModule(new SLN.ServiceInjection()); });
+//builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+//builder.Host.ConfigureContainer<ContainerBuilder>(container => { container.RegisterModule(new SLN.AutofacServiceInjection()); });
+
+//Add Service
+builder.Services.AddBizService(builder.Configuration);
 
 //MVC
 builder.Services.AddControllers().AddJsonOptions(config => { config.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; });

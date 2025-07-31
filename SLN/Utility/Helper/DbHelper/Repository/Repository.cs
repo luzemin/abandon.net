@@ -11,7 +11,7 @@ public class Repository<T> : IRepository<T> where T : class, new()
         _factory = factory;
     }
 
-    public SimpleClient<T> ReadClient => new SimpleClient<T>(_factory.GetClient());
+    public SimpleClient<T> ReadClient => new(_factory.GetClient());
 
-    public SimpleClient<T> WriteClient => new SimpleClient<T>(_factory.GetClient(DBOperateType.Write));
+    public SimpleClient<T> WriteClient => new(_factory.GetClient(DBOperateType.Write));
 }
