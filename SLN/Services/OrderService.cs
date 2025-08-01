@@ -28,6 +28,22 @@ public class OrderService : IDynamicWebApi
 
     [HttpGet]
     [AllowAnonymous]
+    public async Task<string> GetTestExceptionAsync()
+    {
+        throw new Exception("test exception");
+    }
+
+    [HttpGet]
+    //[Authorize]
+    //[Authorize(Roles = "Admin")]
+    [Authorize(Policy = "MustBeEmployee")]
+    public async Task<string> GetTestAuthAsync()
+    {
+        return await Task.FromResult("Hello World!");
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
     public async Task<Order> GetAllAsync()
     {
         //通用client 示例
