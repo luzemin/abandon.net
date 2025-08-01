@@ -1,4 +1,4 @@
-﻿namespace SLN.DbHelper;
+﻿namespace SLN.Utility.DataBase;
 
 public class ConnectionStringItem
 {

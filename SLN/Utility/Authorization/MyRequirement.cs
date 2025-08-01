@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace SLN.Utility.JWT;
+namespace SLN.Utility.Authorization;
 
 /// <summary>
 /// ref: RolesAuthorizationRequirement

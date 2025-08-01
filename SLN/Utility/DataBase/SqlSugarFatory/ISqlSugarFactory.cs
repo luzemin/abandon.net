@@ -1,6 +1,6 @@
 ﻿using SqlSugar;
 
-namespace SLN.DbHelper;
+namespace SLN.Utility.DataBase;
 
 public interface ISqlSugarFactory
 {

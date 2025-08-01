@@ -1,6 +1,6 @@
 ﻿using SqlSugar;
 
-namespace SLN.DbHelper;
+namespace SLN.Utility.DataBase;
 
 public interface IRepository<T> where T : class, new()
 {

@@ -1,11 +1,11 @@
 ﻿using CorrelationId.Abstractions;
 using NLog;
 
-namespace SLN.LogHelper;
+namespace SLN.Utility.Logger;
 
 public sealed class NLogHelper : INLogHelper
 {
-    private static Logger _logger = LogManager.GetCurrentClassLogger();
+    private static NLog.Logger _logger = LogManager.GetCurrentClassLogger();
     private readonly ICorrelationContextAccessor _correlationContext;
 
     public NLogHelper(ICorrelationContextAccessor correlationContext)

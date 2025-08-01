@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Text.Json;
-using SLN.LogHelper;
+using SLN.Utility.Logger;
 
-namespace SLN.Utility.Global;
+namespace SLN.Utility.Middleware;
+
 public class GlobalExceptionHandler
 {
     private readonly RequestDelegate _next;

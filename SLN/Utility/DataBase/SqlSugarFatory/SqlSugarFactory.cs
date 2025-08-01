@@ -1,8 +1,7 @@
-﻿using SqlSugar;
-using SLN.LogHelper;
-using static SLN.DbHelper.ConnectionStringProvider;
+﻿using SLN.Utility.Logger;
+using SqlSugar;
 
-namespace SLN.DbHelper;
+namespace SLN.Utility.DataBase;
 
 public class SqlSugarFactory : ISqlSugarFactory
 {
@@ -12,7 +11,7 @@ public class SqlSugarFactory : ISqlSugarFactory
     public SqlSugarFactory(INLogHelper nLogHelper, IConfiguration configuration)
     {
         _NLogHelper = nLogHelper;
-        _connectionConfigs = configuration.GetSection("ConnectionStrings").Get<List<ConnectionStringItem>>();
+        _connectionConfigs = configuration.GetSection("ConnectionStringList").Get<List<ConnectionStringItem>>();
     }
 
     public SqlSugarClient GetClient(DBOperateType dBOperate = DBOperateType.Read, DbType dbType = DbType.MySql, string dataBaseName = "Default")
@@ -20,7 +19,7 @@ public class SqlSugarFactory : ISqlSugarFactory
         //创建数据库对象
         var db = new SqlSugarClient(new ConnectionConfig()
         {
-            ConnectionString = GetConnectionString(_connectionConfigs, dataBaseName, dBOperate == DBOperateType.Write), //连接符字串
+            ConnectionString = ConnectionStringProvider.GetConnectionString(_connectionConfigs, dataBaseName, dBOperate == DBOperateType.Write), //连接符字串
             DbType = dbType,
             IsAutoCloseConnection = true,
             ConfigId = dataBaseName,

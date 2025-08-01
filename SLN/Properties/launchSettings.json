@@ -12,7 +12,7 @@
     "SLN": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Sit"
       },
       "applicationUrl": "http://localhost:8067",
       "dotnetRunMessages": true

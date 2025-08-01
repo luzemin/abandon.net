@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Panda.DynamicWebApi;
 using Panda.DynamicWebApi.Attributes;
-using SLN.DbHelper;
 using SLN.Models;
+using SLN.Utility.DataBase;
 
 namespace SLN.Services;
 

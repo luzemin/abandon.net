@@ -1,4 +1,4 @@
-﻿namespace SLN.LogHelper;
+﻿namespace SLN.Utility.Logger;
 
 public interface INLogHelper
 {

@@ -13,8 +13,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Panda.DynamicWebApi;
 using SLN;
-using SLN.Utility.Global;
-using SLN.Utility.JWT;
+using SLN.Utility.Middleware;
+using SLN.Utility.Authorization;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 

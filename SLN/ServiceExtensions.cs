@@ -1,5 +1,5 @@
-using SLN.DbHelper;
-using SLN.LogHelper;
+using SLN.Utility.DataBase;
+using SLN.Utility.Logger;
 
 namespace SLN;
 

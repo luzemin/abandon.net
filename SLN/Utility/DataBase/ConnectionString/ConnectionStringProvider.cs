@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace SLN.DbHelper;
+﻿namespace SLN.Utility.DataBase;
 
 public class ConnectionStringProvider
 {
