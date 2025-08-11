@@ -15,6 +15,7 @@ using Panda.DynamicWebApi;
 using SLN;
 using SLN.Utility.Middleware;
 using SLN.Utility.Authorization;
+using SLN.Utility.Options;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -85,7 +86,6 @@ builder.Services.AddAuthorization(options =>
         policy.AddRequirements(new MyRequirement()));
 });
 
-
 //Swagger
 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -112,6 +112,11 @@ builder.Services.AddSwaggerGen((Action<SwaggerGenOptions>)(c =>
     c.OperationFilter<AddResponseHeadersFilter>();
     c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
 }));
+
+//Configuration vs Option
+builder.Services.AddOptions<JwtSetting>().Bind(builder.Configuration.GetSection("Jwt"))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
 
 //CorrelationId
 builder.Services.AddDefaultCorrelationId(options => { options.UpdateTraceIdentifier = true; });

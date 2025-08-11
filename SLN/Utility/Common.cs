@@ -4,7 +4,7 @@ namespace SLN.Utility;
 
 public static class Common
 {
-    private static Regex CaseNumberRegex = new Regex("字?第?0*(\\d*)号", RegexOptions.Compiled);
+    private static readonly Regex CaseNumberRegex = new Regex("字?第?0*(\\d*)号", RegexOptions.Compiled);
 
     public static bool IsSameCaseNumber(string caseNo1, string caseNo2)
     {
