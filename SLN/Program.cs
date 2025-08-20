@@ -121,6 +121,12 @@ builder.Services.AddOptions<JwtSetting>().Bind(builder.Configuration.GetSection(
 //CorrelationId
 builder.Services.AddDefaultCorrelationId(options => { options.UpdateTraceIdentifier = true; });
 
+//MCP
+builder.Services
+    .AddMcpServer()
+    .WithHttpTransport()
+    .WithToolsFromAssembly();
+
 var app = builder.Build();
 
 /***************************************Use XXX******************************************************/
@@ -141,5 +147,6 @@ app.UseWebSockets();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapMcp();
 
 app.Run();
