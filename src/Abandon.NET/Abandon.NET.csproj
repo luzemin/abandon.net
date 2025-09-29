@@ -28,6 +28,7 @@
     <PackageReference Include="Scalar.AspNetCore.Microsoft" Version="2.8.7" />
     <PackageReference Include="SqlSugar" Version="5.1.4.199-preview09" />
     <PackageReference Include="SqlSugar.MySqlConnectorCore" Version="5.10.3.37" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.5" />
   </ItemGroup>
 
 </Project>

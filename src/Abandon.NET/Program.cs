@@ -92,6 +92,7 @@ app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapOpenApi();
 app.MapScalarApiReference();//https://scalar.com/#integrations
+app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Swagger"));//only need Swashbuckle.AspNetCore
 app.UseWebSockets();
 app.UseAuthentication();
 app.UseAuthorization();
