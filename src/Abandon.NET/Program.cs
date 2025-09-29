@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 /******************************************Add XXX***************************************************/
 //AddOpenApi
+//default:/openapi/v1.json
+//https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0&tabs=visual-studio%2Cvisual-studio-code
 builder.Services.AddOpenApi();
 
 //Add Service
@@ -89,7 +91,7 @@ var app = builder.Build();
 app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapOpenApi();
-app.MapScalarApiReference();
+app.MapScalarApiReference();//https://scalar.com/#integrations
 app.UseWebSockets();
 app.UseAuthentication();
 app.UseAuthorization();
