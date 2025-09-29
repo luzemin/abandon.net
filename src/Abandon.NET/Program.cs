@@ -16,6 +16,7 @@ using Abandon.NET;
 using Abandon.NET.Utility.Middleware;
 using Abandon.NET.Utility.Authorization;
 using Abandon.NET.Utility.Options;
+using Microsoft.FeatureManagement;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -28,6 +29,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add Service
 builder.Services.AddBizService(builder.Configuration);
+
+//FeatureManagement
+builder.Services.AddFeatureManagement();
 
 //MVC
 builder.Services.AddControllers().AddJsonOptions(config => { config.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; });
