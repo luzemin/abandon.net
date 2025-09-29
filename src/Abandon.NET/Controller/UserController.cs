@@ -4,18 +4,17 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Panda.DynamicWebApi;
-using Panda.DynamicWebApi.Attributes;
 using Abandon.NET.Dto;
 
 namespace Abandon.NET.Services;
 
-[DynamicWebApi]
-public class UserService : IDynamicWebApi
+[ApiController]
+[Route("api/[controller]")]
+public class UserController : ControllerBase
 {
     private readonly IConfiguration _configuration;
 
-    public UserService(IConfiguration configuration)
+    public UserController(IConfiguration configuration)
     {
         _configuration = configuration;
     }

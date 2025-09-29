@@ -12,7 +12,7 @@
     "Abandon.NET": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Sit"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:8067",
       "dotnetRunMessages": true

@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Panda.DynamicWebApi;
-using Panda.DynamicWebApi.Attributes;
 using Abandon.NET.Models;
 using Abandon.NET.Utility.DataBase;
 using Abandon.NET.Utility.Options;
 
 namespace Abandon.NET.Services;
 
-[DynamicWebApi]
-public class OrderService : IDynamicWebApi
+[ApiController]
+[Route("api/[controller]")]
+public class OrderController : ControllerBase
 {
     private readonly IRepository<Order> _orderRepository;
     private readonly ISqlSugarFactory _sqlSugarFactory;
     private readonly JwtSetting _jwtSetting;
 
-    public OrderService(IRepository<Order> orderRepository, ISqlSugarFactory sqlSugarFactory, IOptions<JwtSetting> jwtSetting)
+    public OrderController(IRepository<Order> orderRepository, ISqlSugarFactory sqlSugarFactory, IOptions<JwtSetting> jwtSetting)
     {
         _orderRepository = orderRepository;
         _sqlSugarFactory = sqlSugarFactory;

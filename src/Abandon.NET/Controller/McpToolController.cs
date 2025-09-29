@@ -2,14 +2,13 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelContextProtocol.Server;
-using Panda.DynamicWebApi;
-using Panda.DynamicWebApi.Attributes;
 
 namespace Abandon.NET.Services;
 
 [McpServerToolType]
-[DynamicWebApi]
-public class McpToolService : IDynamicWebApi
+[ApiController]
+[Route("api/[controller]")]
+public class McpToolController : ControllerBase
 {
     [HttpGet]
     [AllowAnonymous]

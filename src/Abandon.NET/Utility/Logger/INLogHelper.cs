@@ -15,6 +15,4 @@ public interface INLogHelper
     void Error(Exception ex);
 
     void Fatal(string msg);
-
-    Dictionary<string, string> GetCorrelationId();
 }

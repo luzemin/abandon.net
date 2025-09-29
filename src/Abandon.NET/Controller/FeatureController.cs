@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Panda.DynamicWebApi;
-using Panda.DynamicWebApi.Attributes;
 using Microsoft.FeatureManagement;
 
 namespace Abandon.NET.Services;
@@ -10,12 +8,13 @@ namespace Abandon.NET.Services;
 /// https://github.com/microsoft/FeatureManagement-Dotnet
 /// https://www.milanjovanovic.tech/blog/feature-flags-in-dotnet-and-how-i-use-them-for-ab-testing?utm_source=X&utm_medium=social&utm_campaign=29.09.2025
 /// </summary>
-[DynamicWebApi]
-public class FeatureService : IDynamicWebApi
+[ApiController]
+[Route("api/[controller]")]
+public class FeatureController : ControllerBase
 {
     private readonly IFeatureManager _featureManager;
 
-    public FeatureService(IFeatureManager featureManager)
+    public FeatureController(IFeatureManager featureManager)
     {
         _featureManager = featureManager;
     }

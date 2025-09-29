@@ -6,42 +6,18 @@ namespace Abandon.NET.Utility.Logger;
 public sealed class NLogHelper : INLogHelper
 {
     private static NLog.Logger _logger = LogManager.GetCurrentClassLogger();
-    private readonly ICorrelationContextAccessor _correlationContext;
 
-    public NLogHelper(ICorrelationContextAccessor correlationContext)
-    {
-        this._correlationContext = correlationContext;
-    }
+    public void Trace(string msg) => _logger.Trace(msg);
 
-    /// <summary>获取CorrelationId</summary>
-    /// <returns></returns>
-    public Dictionary<string, string> GetCorrelationId()
-    {
-        return new Dictionary<string, string>()
-        {
-            {
-                "X-Correlation-Id",
-                this._correlationContext.CorrelationContext.CorrelationId
-            }
-        };
-    }
+    public void Debug(string msg) => _logger.Debug(msg);
 
-    private string GetNewMsg(string Msg)
-    {
-        return ((this._correlationContext.CorrelationContext != null ? $"【{this._correlationContext.CorrelationContext.CorrelationId}】" : "") ?? "") + Msg;
-    }
+    public void Info(string msg) => _logger.Info(msg);
 
-    public void Trace(string msg) => NLogHelper._logger.Trace(this.GetNewMsg(msg));
+    public void Warn(string msg) => _logger.Warn(msg);
 
-    public void Debug(string msg) => NLogHelper._logger.Debug(this.GetNewMsg(msg));
+    public void Error(string msg) => _logger.Error(msg);
 
-    public void Info(string msg) => NLogHelper._logger.Info(this.GetNewMsg(msg));
+    public void Error(Exception ex) => _logger.Error(ex.ToString());
 
-    public void Warn(string msg) => NLogHelper._logger.Warn(this.GetNewMsg(msg));
-
-    public void Error(string msg) => NLogHelper._logger.Error(this.GetNewMsg(msg));
-
-    public void Error(Exception ex) => NLogHelper._logger.Error(this.GetNewMsg(ex.ToString()));
-
-    public void Fatal(string msg) => NLogHelper._logger.Fatal(this.GetNewMsg(msg));
+    public void Fatal(string msg) => _logger.Fatal(msg);
 }

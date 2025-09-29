@@ -1,5 +1,7 @@
 using Abandon.NET.Utility.DataBase;
 using Abandon.NET.Utility.Logger;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Abandon.NET;
 
