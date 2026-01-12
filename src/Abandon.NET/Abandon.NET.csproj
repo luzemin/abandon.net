@@ -31,6 +31,7 @@
     <PackageReference Include="SqlSugar" Version="5.1.4.199-preview09" />
     <PackageReference Include="SqlSugar.MySqlConnectorCore" Version="5.10.3.37" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.5" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
   </ItemGroup>
 
 </Project>
