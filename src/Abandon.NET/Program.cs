@@ -4,6 +4,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Abandon.NET;
+using Abandon.NET.Services.MQ;
 using Abandon.NET.Utility.Middleware;
 using Abandon.NET.Utility.Authorization;
 using Abandon.NET.Utility.Options;
@@ -77,6 +78,9 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddOptions<JwtSetting>().Bind(builder.Configuration.GetSection("Jwt"))
     .ValidateDataAnnotations()
     .ValidateOnStart();
+
+//MassTransit.RabbitMQ
+builder.Services.AddMassTransitRabbitMQ(builder.Configuration);
 
 //MCP
 builder.Services
