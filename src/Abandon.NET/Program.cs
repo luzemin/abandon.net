@@ -4,12 +4,9 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Abandon.NET;
-using Abandon.NET.Services.MQ;
 using Abandon.NET.Utility.Middleware;
 using Abandon.NET.Utility.Authorization;
 using Abandon.NET.Utility.Options;
-using Microsoft.FeatureManagement;
-//using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,9 +18,6 @@ builder.Services.AddOpenApi();
 
 //Add Service
 builder.Services.AddBizService(builder.Configuration);
-
-//FeatureManagement
-builder.Services.AddFeatureManagement();
 
 //AddControllers
 builder.Services.AddControllers().AddJsonOptions(config => config.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);

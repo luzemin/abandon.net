@@ -1,15 +1,14 @@
 ﻿using System.Net;
 using System.Text.Json;
-using Abandon.NET.Utility.Logger;
 
 namespace Abandon.NET.Utility.Middleware;
 
 public class GlobalExceptionHandler
 {
     private readonly RequestDelegate _next;
-    private readonly INLogHelper _logger;
+    private readonly ILogger _logger;
 
-    public GlobalExceptionHandler(RequestDelegate next, INLogHelper logger)
+    public GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptionHandler> logger)
     {
         _next = next;
         _logger = logger;
@@ -23,7 +22,7 @@ public class GlobalExceptionHandler
         }
         catch (Exception ex)
         {
-            _logger.Error(ex);
+            _logger.LogError(ex, "An unhandled exception occurred.");
             await HandleExceptionAsync(context, ex);
         }
     }
