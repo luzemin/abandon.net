@@ -9,7 +9,7 @@ using Abandon.NET.Utility.Middleware;
 using Abandon.NET.Utility.Authorization;
 using Abandon.NET.Utility.Options;
 using Microsoft.FeatureManagement;
-using Scalar.AspNetCore;
+//using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,7 +80,7 @@ builder.Services.AddOptions<JwtSetting>().Bind(builder.Configuration.GetSection(
     .ValidateOnStart();
 
 //MassTransit.RabbitMQ
-builder.Services.AddMassTransitRabbitMQ(builder.Configuration);
+//builder.Services.AddMassTransitRabbitMQ(builder.Configuration);
 
 //MCP
 builder.Services
@@ -95,7 +95,7 @@ var app = builder.Build();
 app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapOpenApi();
-app.MapScalarApiReference();//https://scalar.com/#integrations
+//app.MapScalarApiReference();//https://scalar.com/#integrations
 app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Swagger"));//only need Swashbuckle.AspNetCore
 app.UseWebSockets();
 app.UseAuthentication();

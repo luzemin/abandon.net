@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.FeatureManagement;
 
@@ -31,5 +32,30 @@ public class FeatureController : ControllerBase
         }
 
         return content;
+    }
+
+    [HttpGet("stack")]
+    [AllowAnonymous]
+    public async Task Stack()
+    {
+        await OuterAsync();
+    }
+
+    async Task OuterAsync()
+    {
+        await Task.CompletedTask;
+        await MiddleAsync();
+    }
+
+    async Task MiddleAsync()
+    {
+        await Task.CompletedTask;
+        await InnerAsync();
+    }
+
+    async Task InnerAsync()
+    {
+        await Task.CompletedTask;
+        Console.WriteLine(new StackTrace(fNeedFileInfo: true)); // 打印当前调用栈
     }
 }

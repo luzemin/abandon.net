@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net11.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <OpenApiDocumentsDirectory>.</OpenApiDocumentsDirectory>
+    <Features>runtime-async=on</Features>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +29,6 @@
     <PackageReference Include="NLog" Version="4.7.5" />
     <PackageReference Include="NPOI" Version="2.7.5" />
     <PackageReference Include="Panda.DynamicWebApi" Version="1.2.2" />
-    <PackageReference Include="Scalar.AspNetCore.Microsoft" Version="2.8.7" />
     <PackageReference Include="SqlSugar" Version="5.1.4.199-preview09" />
     <PackageReference Include="SqlSugar.MySqlConnectorCore" Version="5.10.3.37" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.5" />
